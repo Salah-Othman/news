@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984603279754",
+    "project_id": "newst-app-67c14",
+    "storage_bucket": "newst-app-67c14.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984603279754:android:77294147b23accc40fc873",
+        "android_client_info": {
+          "package_name": "com.example.newst"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdO7g6Z_bbjG0CVQA7RYnUUgLhlJCm1MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
