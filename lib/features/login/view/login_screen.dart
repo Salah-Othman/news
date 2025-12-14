@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newst/core/data/local_data/preferences_manager.dart';
+import 'package:newst/core/theme/light_color.dart';
 import 'package:newst/core/widgets/custom_button.dart';
 import 'package:newst/core/widgets/custom_text_feild.dart';
 import 'package:newst/features/home/view/home_screen.dart';
-import 'package:newst/features/login/controller/bloc/login_bloc.dart';
-import 'package:newst/features/login/controller/bloc/login_event.dart';
-import 'package:newst/features/login/controller/bloc/login_state.dart';
+import 'package:newst/features/login/controller/auth/login_bloc.dart';
+import 'package:newst/features/login/controller/auth/login_event.dart';
+import 'package:newst/features/login/controller/auth/login_state.dart';
 import 'package:newst/features/signup/controller/bloc/signup_bloc.dart';
 import 'package:newst/features/signup/view/signup_screen.dart';
 
@@ -31,6 +33,7 @@ class LoginScreen extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
+                PreferencesManager().setBool('is_logged_in', true);
                 return Center(child: Text('Login Successful'));
               },
             );
@@ -70,7 +73,6 @@ class LoginScreen extends StatelessWidget {
                   text: 'Email',
                   hintText: 'Salah@gmail.com',
                   controller: emailController,
-                  obscureText: false,
                 ),
                 SizedBox(height: 12),
                 CustomTextFeild(
@@ -117,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                           TextSpan(
                             text: 'Sign Up',
                             style: TextStyle(
-                              color: Color.fromRGBO(197, 48, 48, 1),
+                              color: LightColor.primaryColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             ),

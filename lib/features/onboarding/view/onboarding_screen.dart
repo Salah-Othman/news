@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newst/core/widgets/custom_button.dart';
-import 'package:newst/features/home/view/home_screen.dart';
 import 'package:newst/features/onboarding/controller/onboarding_controller.dart';
 import 'package:newst/features/onboarding/models/onboarding_model.dart';
 import 'package:provider/provider.dart';
@@ -9,12 +7,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
-  _onFinish(BuildContext context) async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +30,9 @@ class OnboardingScreen extends StatelessWidget {
                             ? SizedBox()
                             : TextButton(
                                 onPressed: () {
+                                  context.read<OnboardingController>().onFinish(
+                                    context,
+                                  );
                                   if (!value.isLastPage) {
                                     controller.pageController.nextPage(
                                       duration: Duration(milliseconds: 300),
@@ -110,8 +105,11 @@ class OnboardingScreen extends StatelessWidget {
                                       duration: Duration(milliseconds: 300),
                                       curve: Curves.easeInOut,
                                     );
-                                  } else
-                                    _onFinish(context);
+                                  } else {
+                                    context
+                                        .read<OnboardingController>()
+                                        .onFinish(context);
+                                  }
                                 },
                                 text: value.isLastPage ? 'Get Started' : 'Next',
                               );

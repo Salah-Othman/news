@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newst/core/widgets/custom_button.dart';
 import 'package:newst/core/widgets/custom_text_feild.dart';
-import 'package:newst/features/login/controller/bloc/login_bloc.dart';
+import 'package:newst/features/login/controller/auth/login_bloc.dart';
 import 'package:newst/features/login/view/login_screen.dart';
 import 'package:newst/features/signup/controller/bloc/signup_bloc.dart';
 import 'package:newst/features/signup/controller/bloc/signup_event.dart';
